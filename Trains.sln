@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsLibrary", "TrainsLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsUnitTest", "TrainsUnitTest\TrainsUnitTest.csproj", "{FEDD949A-4687-4D8D-A42B-59E1E996D179}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsConsole", "TrainsConsole\TrainsConsole.csproj", "{6CA3A459-824C-4FCE-82AF-FB7B87476F65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FEDD949A-4687-4D8D-A42B-59E1E996D179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEDD949A-4687-4D8D-A42B-59E1E996D179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEDD949A-4687-4D8D-A42B-59E1E996D179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA3A459-824C-4FCE-82AF-FB7B87476F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA3A459-824C-4FCE-82AF-FB7B87476F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA3A459-824C-4FCE-82AF-FB7B87476F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA3A459-824C-4FCE-82AF-FB7B87476F65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

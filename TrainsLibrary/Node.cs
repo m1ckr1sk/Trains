@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TrainsLibrary
 {
-    internal class Node
+    public class Node
     {
         private string name;
         private List<Edge> edges;
@@ -27,7 +27,17 @@ namespace TrainsLibrary
             this.edges.Add(edge);
         }
 
-        internal Edge findEdge(string destinationName)
+        public List<Node> getNeightbours()
+        {
+            List<Node> neighbours = new List<Node>();
+            foreach(Edge edge in this.edges)
+            {
+                neighbours.Add(edge.EndNode);
+            }
+            return neighbours;
+        }
+
+        public Edge findEdge(string destinationName)
         {
             return this.edges.Find(e => e.EndNode.Name == destinationName);
         }

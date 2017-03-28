@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -84,5 +85,69 @@ namespace TrainsLibrary
             return weight;
         }
 
-     }
+        public List<List<Node>> DepthFirstSearch(string start, string end, int maxDepth)
+        {
+            Node startNode = findNode(start);
+            Node endNode = findNode(end);
+
+            // add the start node to the visited list
+            Stack<Node> routeStack = new Stack<Node>();
+            List<List<Node>> paths = new List<List<Node>>();
+
+            routeStack.Push(startNode);
+            Debug.WriteLine("Level:" + 0 + " Pushed " + startNode.Name + " ");
+
+            // Recur for all the vertices adjacent to this vertex
+            List<Node> list = startNode.getNeightbours();
+
+            foreach (var val in list)
+            {
+                DFSUtil(val, endNode, routeStack, paths, maxDepth + 1, 1);
+            }
+
+            return paths;
+        }
+
+        private void DFSUtil(Node currentNode, Node end, Stack<Node> routeStack, List<List<Node>> paths, int maxDepth, int currentDepth)
+        {
+            if (currentDepth < maxDepth)
+            {
+                // Mark the current node as visited and print it
+                routeStack.Push(currentNode);
+                Debug.WriteLine("Level:" + currentDepth + " Pushed " + currentNode.Name + " ");
+
+                if (currentNode.Name != end.Name)
+                {
+                    // Recur for all the vertices adjacent to this vertex
+                    List<Node> list = currentNode.getNeightbours();
+
+                    foreach (var val in list)
+                    {
+                        DFSUtil(val, end, routeStack, paths, maxDepth, currentDepth + 1);
+                    }
+                }
+                else
+                {
+                    Debug.WriteLine("Reached destination so exporting route");
+                    List<Node> pathCreated = routeStack.ToList<Node>();
+                    pathCreated.Reverse();
+                    paths.Add(pathCreated);
+                }
+            }
+            else
+            {
+                Debug.WriteLine("Reached max depth so exporting route");
+                List<Node> pathCreated = routeStack.ToList<Node>();
+                pathCreated.Reverse();
+                paths.Add(pathCreated);
+                
+            } 
+            
+            if (routeStack.Count > 1)
+            {
+                Node popped = routeStack.Pop();
+                Debug.WriteLine("Level: " + currentDepth + " POPPED:" + popped.Name);
+            }
+        }
+    }
 }

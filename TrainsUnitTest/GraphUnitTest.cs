@@ -26,5 +26,57 @@ namespace TrainsUnitTest
             int distance = destinationCalculator.getDistance(destinations);
             Assert.AreEqual(9, distance);
         }
+
+        [TestMethod]
+        public void DistanceOfAD()
+        {
+            List<string> destinations = new List<string>();
+            destinations.Add("A");
+            destinations.Add("D");
+            int distance = destinationCalculator.getDistance(destinations);
+            Assert.AreEqual(5, distance);
+        }
+
+        [TestMethod]
+        public void DistanceOfADC()
+        {
+            List<string> destinations = new List<string>();
+            destinations.Add("A");
+            destinations.Add("D");
+            destinations.Add("C");
+            int distance = destinationCalculator.getDistance(destinations);
+            Assert.AreEqual(13, distance);
+        }
+
+        [TestMethod]
+        public void DistanceOfAEBCD()
+        {
+            List<string> destinations = new List<string>();
+            destinations.Add("A");
+            destinations.Add("E");
+            destinations.Add("B");
+            destinations.Add("C");
+            destinations.Add("D");
+            int distance = destinationCalculator.getDistance(destinations);
+            Assert.AreEqual(22, distance);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TrainsLibrary.NoRouteException))]
+        public void DistanceOfAEDThrowsNoRouteException()
+        {
+            List<string> destinations = new List<string>();
+            destinations.Add("A");
+            destinations.Add("E");
+            destinations.Add("D");
+            int distance = destinationCalculator.getDistance(destinations);
+        }
+
+        [TestMethod]
+        public void PathsFromCToC()
+        {
+            List<List<String>> routes = destinationCalculator.getAllPaths("C", "C", 3);
+            Assert.AreEqual(2, routes.Count);
+        }
     }
 }

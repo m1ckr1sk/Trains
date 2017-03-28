@@ -1,6 +1,6 @@
 ﻿namespace TrainsLibrary
 {
-    internal class Edge
+    public class Edge
     {
         private Node endNode;
         private int weight;

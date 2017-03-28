@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace TrainsLibrary
 {
     [Serializable]
-    internal class NoRouteException : Exception
+    public class NoRouteException : Exception
     {
         public NoRouteException()
         {
