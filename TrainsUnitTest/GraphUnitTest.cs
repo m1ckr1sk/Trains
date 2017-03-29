@@ -78,5 +78,12 @@ namespace TrainsUnitTest
             List<List<String>> routes = destinationCalculator.getAllPaths("C", "C", 3);
             Assert.AreEqual(2, routes.Count);
         }
+
+        [TestMethod]
+        public void PathsFromAToC()
+        {
+            List<List<String>> routes = destinationCalculator.getAllPaths("A", "C", 10);
+            Assert.AreEqual(3, routes.Count);
+        }
     }
 }
