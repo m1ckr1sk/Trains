@@ -30,7 +30,7 @@ For the test input, the towns are named using the first few letters of the alpha
 ```
 Graph: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
 ```
-![Test Graph Image](Images/testgraph.png "Test Graph")
+![Test Graph Image](/Images/testgraph.PNG "Test Graph")
 
 Expected Output:
 
